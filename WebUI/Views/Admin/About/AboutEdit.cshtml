@@ -1,0 +1,84 @@
+﻿@model Entity.About
+@{
+    ViewData["Title"] = "AboutEdit";
+}
+
+<h1>AboutEdit</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Admin" asp-action="AboutEdit" method="post">
+            <input type="hidden" name="categoryId" value="@Model.AboutId" />
+
+            <div class="form-group row">
+                <label asp-for="AboutTitle" class="col-md-2 col-form-label"></label>
+                <div class="col-md-10">
+                    <input class="form-control" asp-for="AboutTitle" value="@Model.AboutTitle" />
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-md-10 offset-md-2">
+                    <button type="submit" class="btn btn-primary">Save Product</button>
+
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+@*    <div class="col-md-8">
+        @if (Model.Products.Count() > 0)
+        {
+
+            <table class="table table-border">
+
+                <thead>
+                    <tr>
+                        <td>Id</td>
+                        <td>Image</td>
+                        <td>Name</td>
+                        <td>Price</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Products)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td><img src="~/img/@item.ImageUrl" width="80" /> </td>
+                            <td>@item.Name</td>
+                            <td>@item.Price</td>
+                            <td>
+                                <a class="btn btn-primary btn-sm mr2" href="/admin/products/@item.Id">Edit</a>
+                            </td>
+                            <td>
+
+                                <form action="/admin/deletefromcategory" method="post">
+                                    <input type="hidden" name="productId" value="@item.Id">
+                                    <input type="hidden" name="productId" value="@item.ProductCategories">
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+
+
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        }
+        else
+        {
+            <div class="alert alert-warning">No Product</div>
+        }
+
+
+    </div>*@
+</div>
